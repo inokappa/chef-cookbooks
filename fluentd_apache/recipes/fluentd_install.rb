@@ -9,7 +9,7 @@ cookbook_file "/etc/td-agent/td-agent.conf" do
 end
 
 directory "/var/log/fluent" do
-	mode "00755"
+	mode "00775"
 	action :create
 end
 
