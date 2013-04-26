@@ -8,9 +8,14 @@ cookbook_file "/etc/td-agent/td-agent.conf" do
 	action :create
 end
 
+directory "/var/log/fluent" do
+	mode "00755"
+	action :create
+end
+
 directory "/tmp/td-agent" do
 	mode "00777"
-endc
+end
 
 service "td-agent" do
         supports :status => true, :restart => true, :reload => true
