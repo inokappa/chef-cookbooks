@@ -6,5 +6,5 @@ end
 
 package "httpd" do
 	action :install
-	notifies :create, resources( :template => "/etc/httpd/conf.d/common.conf" )
+	notifies :create, resources( :cookbook_file => "/etc/httpd/conf.d/common.conf" )
 end
