@@ -20,14 +20,16 @@ end
 
 directory "/usr/local/rbenv/plugins" do
 	mode "00755"
-	action :nothing
+	action :create
+	not_if "ls /usr/local/rbenv/plugins"
+	#action :nothing
 end
 
 git "/usr/local/rbenv/plugins/ruby-build" do
 	repository "git://github.com/sstephenson/ruby-build.git"
 	reference "master"
 	action :sync
-	notifies :create,resources( :directory => "/usr/local/rbenv/plugins" )
+	#notifies :create,resources( :directory => "/usr/local/rbenv/plugins" )
 end
 
 bash "install_ruby_build" do
