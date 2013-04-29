@@ -17,8 +17,6 @@ directory "/tmp/td-agent" do
 	mode "00777"
 end
 
-git 
-
 fluent_gem="/usr/lib64/fluent/ruby/bin/gem"
 gem_package "fluent-plugin-redis"
 	gem_binary(#fluent_gem)
