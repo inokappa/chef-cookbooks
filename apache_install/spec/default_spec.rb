@@ -19,7 +19,7 @@ describe 'apache_install::default' do
 			file = chef_run.cookbook_file('/etc/httpd/conf.d/port.conf')
 			expect(file).should be_owned_by('root','root')
 			expect(file.mode).should eq "00644"
-			#expect(file).should notify('service[httpd]',:restart)
+			expect(file).should notify('service[httpd]',:reload)
 		end		
 	end
 end

@@ -10,17 +10,18 @@ package "httpd" do
 	action :install
 end
 
+service "httpd" do
+	supports :status => true, :restart => true, :reload => true
+	action [:enable, :start]
+	#subscribes :reload, resources("cookbook_file[/etc/httpd/conf.d/port.conf]"), :immediately
+end
+
 cookbook_file "/etc/httpd/conf.d/port.conf" do
 	source "port.conf"
 	mode "00644"
 	owner "root"
 	group "root"
-	action :create
-end
-
-service "httpd" do
-	supports :status => true, :restart => true, :reload => true
-	action [:enable, :start]
-	subscribes :reload, resources("cookbook_file[/etc/httpd/conf.d/port.conf]"), :immediately
+	#action :create
+	notifies :reload, resources(:service => "httpd")
 end
 
