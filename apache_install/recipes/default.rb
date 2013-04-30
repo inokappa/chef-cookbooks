@@ -24,4 +24,11 @@ cookbook_file "/etc/httpd/conf.d/port.conf" do
 	#action :create
 	notifies :reload, resources(:service => "httpd")
 end
-
+#
+cookbook_file "/var/www/html/test.html" do
+	source "test.html"
+	mode "00644"
+	owner "root"
+	group "root"
+	action :create
+end
