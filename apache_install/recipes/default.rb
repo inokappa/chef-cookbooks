@@ -32,3 +32,13 @@ cookbook_file "/var/www/html/test.html" do
 	group "root"
 	action :create
 end
+
+hosts = databag('etc_hosts')
+template  '/tmp/hosts' do
+	owner "root"
+	group "root"
+	source "hosts"
+	variables(
+		hosts: hosts
+	)
+end
