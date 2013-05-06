@@ -1,4 +1,4 @@
-# added test hoge
+# added test hoge aaa
 sashimis = data_bag_item('fishies','sashimi')['menu']
 template  '/tmp/menu' do
         owner "root"
