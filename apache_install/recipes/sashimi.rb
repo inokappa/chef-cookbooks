@@ -1,4 +1,4 @@
-# test
+# databags test recipe
 sashimis = data_bag_item('fishies','sashimi')['menu']
 template  '/tmp/menu' do
         owner "root"
